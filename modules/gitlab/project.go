@@ -73,7 +73,7 @@ func (g *GitlabContext) ListProjects(o *ProjectListOptions) ([]*Project, *Collec
 //
 // GitLab API docs: http://doc.gitlab.com/ce/api/projects.html#list-starred-projects
 func (g *GitlabContext) StarredProjects(opt *ProjectListOptions) ([]*Project, *CollectionOptions, error) {
-	u, err := addOptions(getUrl([]string{"projects/starred"}), opt)
+	u, err := addOptions(getUrl([]string{"projects?starred=true"}), opt)
 	if err != nil {
 		return nil, nil, err
 	}

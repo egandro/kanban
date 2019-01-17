@@ -5,6 +5,44 @@
 [![](https://badge.imagelayers.io/leanlabs/kanban:1.4.0.svg)](https://imagelayers.io/?images=leanlabs/kanban:1.4.0 'Get your own badge on imagelayers.io')
 #### Instant project management for your GitLab repositories
 
+---
+
+## Notes about this fork
+
+Hey there!
+
+This fork has been slightly adjusted by [@tmanick01](https://github.com/tmanick01) and me [@Leso_KN](https://github.com/leso-kn) to work with the latest version of gitlab.
+
+(state: late 2018)
+
+### Propper way to get this working
+
+1. Go ahead and clone the repository. Recurse is not required
+2. Run `make dev`
+
+at this point, a docker container named `kb_dev` should be running, but it's configured with the default settings.
+
+To change the settings i recommend creating a script file in the projects root that looks like the following:
+
+```bash
+#!/bin/bash
+export KANBAN_SERVER_HOSTNAME=http(s)://[DESIRED_KANBAN_HOST_URL]
+export KANBAN_SECURITY_SECRET=qwerty
+export KANBAN_GITLAB_URL=http(s)://[YOUR_GITLAB_URL]
+export KANBAN_GITLAB_CLIENT=[YOUR_CLIENT]
+export KANBAN_GITLAB_SECRET=[YOUR_SECRET]
+export KANBAN_ENABLE_SIGNUP=false
+export KANBAN_REDIS_ADDR=redis:6379
+
+make dev
+```
+
+This way, you can apply changes to kanban board's source and run it directly using your custom settings.
+
+I hope everything works for you. For additional assistance you can visit the near-dead gitter channel linked above. I receive email notifications of this and will usually answer. Enjoy!
+
+---
+
 ## Installation
 
 Minimum Install Requrements:  

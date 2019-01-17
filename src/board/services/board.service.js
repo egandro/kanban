@@ -197,7 +197,7 @@
                     return $q.when(_this.boardsList);
                 },
                 getStarredBoards: function() {
-                    return $http.get('/api/boards/starred').then(function(result) {
+                    return $http.get('/api/boards?starred=true').then(function(result) {
                             return result.data.data;
                         }, function(result) {
                             return $q.reject(result);
